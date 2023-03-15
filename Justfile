@@ -1,6 +1,10 @@
 dev:
     parallel --lb ::: 'cargo run' 'pnpm run dev'
 
+lint:
+    cargo clippy
+    pnpm run lint
+
 check:
     cargo check
     pnpm run check

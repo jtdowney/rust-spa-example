@@ -3,7 +3,7 @@ import { createResource, For, Show } from "solid-js";
 import { listPosts } from "~/api";
 
 export default function Index() {
-  let [posts] = createResource(listPosts);
+  const [posts] = createResource(listPosts);
 
   return (
     <main>

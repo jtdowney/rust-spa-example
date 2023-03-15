@@ -25,7 +25,7 @@ function Main() {
   );
 }
 
-let el = document.getElementById("app");
+const el = document.getElementById("app");
 if (el === null) {
   throw new Error("unable to find app element");
 }

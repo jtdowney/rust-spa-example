@@ -1,4 +1,4 @@
-import { A, useParams } from "@solidjs/router";
+import { useParams } from "@solidjs/router";
 import { createResource, Show } from "solid-js";
 import { getPost } from "~/api";
 
@@ -7,8 +7,8 @@ type PostParams = {
 };
 
 export default function Post() {
-  let params = useParams<PostParams>();
-  let [post] = createResource(params.slug, getPost);
+  const params = useParams<PostParams>();
+  const [post] = createResource(params.slug, getPost);
   return (
     <Show when={post()} fallback={<p>Loading...</p>} keyed>
       {(post) => (

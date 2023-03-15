@@ -6,13 +6,13 @@ type Post = {
 };
 
 export async function listPosts() {
-  let response = await fetch("/api/posts");
-  let posts: Post[] = await response.json();
+  const response = await fetch("/api/posts");
+  const posts: Post[] = await response.json();
   return posts;
 }
 
 export async function getPost(slug: string) {
-  let response = await fetch(`/api/posts/${slug}`);
-  let post: Post = await response.json();
+  const response = await fetch(`/api/posts/${slug}`);
+  const post: Post = await response.json();
   return post;
 }
