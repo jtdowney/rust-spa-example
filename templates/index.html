@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust SPA Example</title>
+    {% if development %}
+    <script lang="javascript" type="module" src="http://localhost:3001/@vite/client"></script>
+    <script lang="javascript" type="module" src="http://localhost:3001/app/main.tsx"></script>
+    {% else %}
+    {% for style in styles %}
+    <link rel="stylesheet" href="/{{ style }}" />
+    {% endfor -%}
+    {% for script in scripts %}
+    <script lang="javascript" type="module" src="/{{ script }}"></script>
+    {% endfor %}
+    {% endif %}
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app"></div>
+</body>
+
+</html>

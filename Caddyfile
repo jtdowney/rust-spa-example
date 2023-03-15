@@ -1,0 +1,13 @@
+:8080 {
+    handle_path /assets/* {
+        header cache-control max-age=31536000
+        root * dist/assets
+        file_server {
+            precompressed gzip
+        }
+    }
+
+    handle {
+        reverse_proxy localhost:3000
+    }
+}
