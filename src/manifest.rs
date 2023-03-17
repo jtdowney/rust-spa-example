@@ -9,4 +9,6 @@ pub struct Entry {
     pub file: String,
     #[serde(default)]
     pub css: Vec<String>,
+    #[serde(default, rename = "isEntry")]
+    pub is_entry: bool,
 }

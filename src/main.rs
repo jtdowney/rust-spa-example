@@ -25,8 +25,6 @@ mod config {
 
 mod manifest;
 
-const ASSET_ENTRIES: [&str; 1] = ["app/main.tsx"];
-
 static MIGRATOR: Migrator = sqlx::migrate!("db/migrations");
 static SCRIPTS: OnceCell<Vec<String>> = OnceCell::new();
 static STYLES: OnceCell<Vec<String>> = OnceCell::new();
@@ -108,8 +106,8 @@ fn load_asset_manifest<P: AsRef<Path>>(assets_path: P) -> anyhow::Result<()> {
 
     let mut scripts = vec![];
     let mut styles = vec![];
-    for (file, entry) in manifest {
-        if ASSET_ENTRIES.contains(&file.as_str()) {
+    for (_, entry) in manifest {
+        if entry.is_entry {
             scripts.push(entry.file);
             styles.extend_from_slice(&entry.css);
         }
